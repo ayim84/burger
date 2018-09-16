@@ -4,23 +4,23 @@ var burger =
 {
     selectAll: function(callback)
     {
-        orm.selectAll("burgers" , function(result)
+        orm.selectAll("burgers", function(result)
         {
             callback(result);
         });
     },
 
-    insertOne: function(burger_name, devoured, callback)
+    insertOne: function(columns, values, callback)
     {
-        orm.insertOne("burgers", burger_name, devoured, function(result)
+        orm.insertOne("burgers", columns, values, function(result)
         {
             callback(result);
         });
     },
 
-    updateOne: function(devoured, burger_name, callback)
+    updateOne: function(updateCol, updateVal, searchCol, searchVal, callback)
     {
-        orm.updateOne("burgers", burger_name, devoured, function(result)
+        orm.updateOne("burgers", updateCol, updateVal, searchCol, searchVal, function(result)
         {
             callback(result);
         });

@@ -4,31 +4,30 @@ var orm =
 {
     selectAll: function(tableName, callback)
     {
-        var queryString = "SELECT * FROM " + tableName + ";";
-
-        connection.query(queryString, function(err, result)
+        var queryString = "SELECT * FROM ??";
+        connection.query(queryString, tableName, function(err, result)
         {
             if(err) throw err;
             callback(result);
         });
     },
 
-    insertOne: function(tableName, burger_name, devoured, callback)
+    insertOne: function(tableName, columns, values, callback)
     {
-        var queryString = "INSERT INTO " + tableName + " (burger_name, devoured) VALUES (" + burger_name + ", " + devoured + ");";
+        var queryString = "INSERT INTO ?? (??) VALUES (?)";
 
-        connection.query(queryString, function(err, result)
+        connection.query(queryString, [tableName, columns, values], function(err, result)
         {
             if(err) throw err;
             callback(result);
-        })
+        });
     },
 
-    updateOne: function(tableName, burger_name, devoured, callback)
+    updateOne: function(tableName, updateCol, updateVal, searchCol, searchVal, callback)
     {
-        var queryString = "UPDATE " + tableName + "SET devoured = " + devoured + " WHERE burger_name = " + burger_name + ");";
+        var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
 
-        connection.query(queryString, function(err, result)
+        connection.query(queryString, [tableName, updateCol, updateVal, searchCol, searchVal], function(err, result)
         {
             if(err) throw err;
             callback(result);
