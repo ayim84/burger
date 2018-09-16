@@ -9,4 +9,4 @@ CREATE TABLE burgers
     burger_name VARCHAR(255),
     devoured BOOLEAN,
     PRIMARY KEY(id)
-)
+);
