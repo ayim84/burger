@@ -1,39 +1,69 @@
-<h1>Burgers Nom Nom Nom!</h1>
+<div class="jumbotron">
+  <h1 class="display-4 text-center font-weight-bold">Burgers Nom Nom Nom!</h1>
+  {{!-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+    featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> --}}
+</div>
 
-<h2>Burgers to Eat</h2>
+{{!-- <h1>Burgers Nom Nom Nom!</h1> --}}
 
-<ul>
-  {{#each burgers}}
-    {{#unless this.devoured}}
-      <p>{{this.id}}. {{this.burger_name}}</p>
-      <button class="devoured" data-id="{{this.id}}" data-devoured="{{true}}">Devour</button> 
-    {{/unless}}
-  {{/each}}
-</ul>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-6">
+      <h2>Burgers to Eat</h2>
 
-<h2>Burgers Eaten</h2>
+      {{!-- <ul> --}}
+        {{#each burgers}}
+        {{#unless this.devoured}}
 
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      <p>{{this.id}}. {{this.burger_name}}</p>
-    {{/if}}
-  {{/each}}
-</ul>
+        <div class="card mx-auto" style="width: 18rem;">
+          {{!-- <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap"> --}}
+          <div class="card-body">
+            <p class="card-text">{{this.id}}. {{this.burger_name}}</p>
+            <button class="devoured" data-id="{{this.id}}" data-devoured="{{true}}">Devour</button>
 
-<h2>Add a Burger</h2>
-<form class="createBurger">
+          </div>
+        </div>
 
-  <div class="form-group">
-    <label for="burgerName">Burger Name:</label>
-    <input type="text" id="burgerName" name="name">
+
+        {{!-- <p>{{this.id}}. {{this.burger_name}}</p>
+        <button class="devoured" data-id="{{this.id}}" data-devoured="{{true}}">Devour</button> --}}
+        {{/unless}}
+        {{/each}}
+      {{!-- </ul> --}}
+    </div>
+
+    <div class="col-md-6">
+      <h2>Burgers Eaten</h2>
+
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        <p>{{this.id}}. {{this.burger_name}}</p>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
 
-  {{!-- <div class="form-group">
-    <label for="sleepy">Devoured?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> No!<br>
-    <input type="radio" name="sleepy" value="0"> Yes!
-  </div> --}}
+  <div class="col-md-12 text-center">
+    <h2>Add a Burger</h2>
+    <form class="createBurger">
 
-  <button type="submit">Add Burger</button>
-</form>
+      <div class="form-group">
+        <label for="burgerName">Burger Name:</label>
+        <input type="text" id="burgerName" name="name">
+      </div>
+
+      {{!-- <div class="form-group">
+        <label for="sleepy">Devoured?</label><br>
+        <input type="radio" name="sleepy" value="1" checked> No!<br>
+        <input type="radio" name="sleepy" value="0"> Yes!
+      </div> --}}
+
+      <button type="submit">Add Burger</button>
+    </form>
+  </div>
+</div>
